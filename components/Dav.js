@@ -6,9 +6,16 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Dav(props) {
-  const { nodes, materials } = useGLTF("/4D CALANCHA.gltf");
+  const { nodes, materials } = useGLTF("/5D CALANCHA.gltf");
   return (
     <group {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Plane.geometry}
+        material={materials["old-concrete-pavement---01"]}
+        position={[-0.1, -0.15, -0.16]}
+      />
       <group rotation={[Math.PI / 2, 0, Math.PI / 2]}>
         <mesh
           castShadow
@@ -33,4 +40,4 @@ export function Dav(props) {
   );
 }
 
-useGLTF.preload("/4D CALANCHA.gltf");
+useGLTF.preload("/5D CALANCHA.gltf");
